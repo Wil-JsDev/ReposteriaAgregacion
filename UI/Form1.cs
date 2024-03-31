@@ -67,5 +67,11 @@ namespace UI
                 return;
             }
         }
+
+        private void BtnCalcular_Click(object sender, EventArgs e)
+        {
+           producto.CalcularCosto();
+           
+        }
     }
 }
