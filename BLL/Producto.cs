@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL
 {
-    public class Producto : Ingredientes
+    public class Producto
     {
         #region Propiedades
         public string Nombre { get; set; }
-        public string Caracteristicas { get; set;}
+        public string Caracteristicas { get; set; }
         public List<Ingredientes> ListaIngredientes = new List<Ingredientes>();
         #endregion
 
@@ -25,24 +26,28 @@ namespace BLL
             double costo = 0;
             foreach (var ingredientes in ListaIngredientes)
             {
-                costo += ingredientes.Precio;    
+                costo += ingredientes.Precio;
             }
-            Precio = costo;
+            MessageBox.Show($"El costo total del producto es {costo}");
         }
 
         public bool QuitarIngredientes(Ingredientes ingredientes)
         {
-           var contains = ListaIngredientes.Contains(ingredientes);
+            var contains = ListaIngredientes.Contains(ingredientes);
 
             if (contains)
             {
-                ListaIngredientes.Remove (ingredientes);
+                ListaIngredientes.Remove(ingredientes);
                 return true;
-            } 
-            
+            }
+
             return false;
         }
 
+        public List<Ingredientes> GetIngredietnes()
+        {
+            return ListaIngredientes;
+        }
 
         #endregion
     }
