@@ -57,5 +57,10 @@ namespace UI
             txtCantidad.Text = "";
             txtPrecio.Text = "";
         }
+
+        private void BtnCalcular_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

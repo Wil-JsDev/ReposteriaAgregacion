@@ -118,6 +118,7 @@
             this.BtnCalcular.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnCalcular.UseAccentColor = true;
             this.BtnCalcular.UseVisualStyleBackColor = true;
+            this.BtnCalcular.Click += new System.EventHandler(this.BtnCalcular_Click);
             // 
             // dataGridView1
             // 
