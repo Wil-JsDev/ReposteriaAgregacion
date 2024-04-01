@@ -22,8 +22,8 @@ namespace UI
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.DeepOrange400, TextShade.WHITE);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.DeepOrange400, TextShade.WHITE);
         }
 
         private void btnEnviarI_Click(object sender, EventArgs e)
@@ -38,14 +38,14 @@ namespace UI
             {
                 Ingredientes ingrediente = new Ingredientes();
 
-                bool validacion = Convert.ToBoolean(ingrediente.Nombre = txtNombreI.Text);
-                
+
+                ingrediente.Nombre = txtNombreI.Text;
                 ingrediente.Cantidad = Convert.ToDouble(txtCantidad.Text);
                 ingrediente.Precio = Convert.ToDouble(txtPrecio.Text);
 
                 producto.AgregarIngredientes(ingrediente);
-                this.dataGridView1.DataSource = null;
-                this.dataGridView1.DataSource = producto.GetIngredietnes();
+                this.datagrid.DataSource = null;
+                this.datagrid.DataSource = producto.GetIngredietnes();
                 MessageBox.Show($"Se ha agregado el ingrediente {ingrediente.Nombre}");
                 Limpiar();
             }
@@ -58,9 +58,51 @@ namespace UI
             txtPrecio.Text = "";
         }
 
+<<<<<<< HEAD
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
 
         }
+=======
+        private void txtNombreI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 32 && e.KeyChar <= 64 || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo letras", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void BtnCalcular_Click(object sender, EventArgs e)
+        {
+            producto.CalcularCosto();
+
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (producto.GetIngredietnes().Count > 0)
+            {
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este ingrediente?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    Ingredientes ingredienteEliminar = producto.GetIngredietnes()[0];
+                    producto.GetIngredietnes().RemoveAt(0);
+                    this.datagrid.DataSource = null;
+                    this.datagrid.DataSource = producto.GetIngredietnes();
+                    MessageBox.Show($"Se ha eliminado el ingrediente {ingredienteEliminar.Nombre}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay ingredientes para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+>>>>>>> 8606f13bc12c1d6a2ad876b15a874c201f2c2f88
     }
 }
+
+
+

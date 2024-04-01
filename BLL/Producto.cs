@@ -26,9 +26,10 @@ namespace BLL
             double costo = 0;
             foreach (var ingredientes in ListaIngredientes)
             {
-                costo += ingredientes.Precio;
+                costo += ingredientes.Precio * ingredientes.Cantidad;
             }
             MessageBox.Show($"El costo total del producto es {costo}");
+            
         }
 
         public bool QuitarIngredientes(Ingredientes ingredientes)

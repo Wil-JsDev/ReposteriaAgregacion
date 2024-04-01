@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnEliminar = new MaterialSkin.Controls.MaterialButton();
             this.BtnCalcular = new MaterialSkin.Controls.MaterialButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datagrid = new System.Windows.Forms.DataGridView();
             this.txtCaracteristicaP = new MaterialSkin.Controls.MaterialTextBox();
             this.txtNombreP = new MaterialSkin.Controls.MaterialTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -42,7 +47,7 @@
             this.txtNombreI = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +69,7 @@
             // 
             this.tabPage1.Controls.Add(this.BtnEliminar);
             this.tabPage1.Controls.Add(this.BtnCalcular);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.datagrid);
             this.tabPage1.Controls.Add(this.txtCaracteristicaP);
             this.tabPage1.Controls.Add(this.txtNombreP);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -85,17 +90,18 @@
             this.BtnEliminar.DrawShadows = false;
             this.BtnEliminar.HighEmphasis = true;
             this.BtnEliminar.Icon = null;
-            this.BtnEliminar.Location = new System.Drawing.Point(324, 450);
+            this.BtnEliminar.Location = new System.Drawing.Point(167, 443);
             this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BtnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtnEliminar.Size = new System.Drawing.Size(132, 40);
+            this.BtnEliminar.Size = new System.Drawing.Size(156, 40);
             this.BtnEliminar.TabIndex = 4;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnEliminar.UseAccentColor = true;
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnCalcular
             // 
@@ -107,12 +113,12 @@
             this.BtnCalcular.DrawShadows = false;
             this.BtnCalcular.HighEmphasis = true;
             this.BtnCalcular.Icon = null;
-            this.BtnCalcular.Location = new System.Drawing.Point(464, 450);
+            this.BtnCalcular.Location = new System.Drawing.Point(371, 443);
             this.BtnCalcular.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BtnCalcular.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnCalcular.Name = "BtnCalcular";
             this.BtnCalcular.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtnCalcular.Size = new System.Drawing.Size(132, 40);
+            this.BtnCalcular.Size = new System.Drawing.Size(153, 40);
             this.BtnCalcular.TabIndex = 3;
             this.BtnCalcular.Text = "Calcular";
             this.BtnCalcular.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -120,13 +126,53 @@
             this.BtnCalcular.UseVisualStyleBackColor = true;
             this.BtnCalcular.Click += new System.EventHandler(this.BtnCalcular_Click);
             // 
-            // dataGridView1
+            // datagrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(64, 192);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(532, 241);
-            this.dataGridView1.TabIndex = 2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
+            this.datagrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.datagrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
+            this.datagrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.datagrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.datagrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(60)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(60)))), ((int)(((byte)(4)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.datagrid.EnableHeadersVisualStyles = false;
+            this.datagrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.datagrid.Location = new System.Drawing.Point(167, 186);
+            this.datagrid.Name = "datagrid";
+            this.datagrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.datagrid.RowHeadersVisible = false;
+            this.datagrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.datagrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.datagrid.Size = new System.Drawing.Size(357, 241);
+            this.datagrid.TabIndex = 2;
             // 
             // txtCaracteristicaP
             // 
@@ -137,7 +183,7 @@
             this.txtCaracteristicaP.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtCaracteristicaP.Hint = "Caracteristica";
             this.txtCaracteristicaP.LeadingIcon = null;
-            this.txtCaracteristicaP.Location = new System.Drawing.Point(217, 116);
+            this.txtCaracteristicaP.Location = new System.Drawing.Point(225, 117);
             this.txtCaracteristicaP.MaxLength = 50;
             this.txtCaracteristicaP.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCaracteristicaP.Multiline = false;
@@ -157,7 +203,7 @@
             this.txtNombreP.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtNombreP.Hint = "Nombre del producto";
             this.txtNombreP.LeadingIcon = null;
-            this.txtNombreP.Location = new System.Drawing.Point(217, 42);
+            this.txtNombreP.Location = new System.Drawing.Point(225, 43);
             this.txtNombreP.MaxLength = 50;
             this.txtNombreP.MouseState = MaterialSkin.MouseState.OUT;
             this.txtNombreP.Multiline = false;
@@ -263,6 +309,7 @@
             this.txtNombreI.TabIndex = 2;
             this.txtNombreI.Text = "";
             this.txtNombreI.TrailingIcon = null;
+            this.txtNombreI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreI_KeyPress);
             // 
             // FrmPrincipal
             // 
@@ -281,7 +328,7 @@
             this.Text = "Proyecto";
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -298,9 +345,10 @@
         private MaterialSkin.Controls.MaterialTextBox txtCantidad;
         private MaterialSkin.Controls.MaterialTextBox txtNombreI;
         private MaterialSkin.Controls.MaterialButton btnEnviarI;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private MaterialSkin.Controls.MaterialButton BtnCalcular;
         private MaterialSkin.Controls.MaterialButton BtnEliminar;
+        private MaterialSkin.Controls.MaterialListView dataGridView1;
+        private System.Windows.Forms.DataGridView datagrid;
     }
 }
 
