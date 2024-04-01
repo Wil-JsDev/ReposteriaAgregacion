@@ -13,5 +13,7 @@ namespace BLL
         public double Cantidad { get; set; }
         public double Precio { get; set; }
         #endregion  
+
+
     }
 }

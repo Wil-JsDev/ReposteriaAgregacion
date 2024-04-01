@@ -38,7 +38,7 @@ namespace UI
             {
                 Ingredientes ingrediente = new Ingredientes();
 
-                
+
                 ingrediente.Nombre = txtNombreI.Text;
                 ingrediente.Cantidad = Convert.ToDouble(txtCantidad.Text);
                 ingrediente.Precio = Convert.ToDouble(txtPrecio.Text);
@@ -70,8 +70,32 @@ namespace UI
 
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
-           producto.CalcularCosto();
-           
+            producto.CalcularCosto();
+
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (producto.GetIngredietnes().Count > 0)
+            {
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este ingrediente?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    Ingredientes ingredienteEliminar = producto.GetIngredietnes()[0];
+                    producto.GetIngredietnes().RemoveAt(0);
+                    this.datagrid.DataSource = null;
+                    this.datagrid.DataSource = producto.GetIngredietnes();
+                    MessageBox.Show($"Se ha eliminado el ingrediente {ingredienteEliminar.Nombre}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay ingredientes para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
+
+
+
