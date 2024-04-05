@@ -70,9 +70,16 @@ namespace UI
 
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
-            producto.CalcularCosto();
-            MessageBox.Show("Han sido enviados los datos");
-            
+            if (string.IsNullOrEmpty(Convert.ToString(datagrid)))
+            {
+                MessageBox.Show("No tienes ingredientes agregados");
+            }
+            else
+            {
+                producto.CalcularCosto();
+                MessageBox.Show("Han sido enviados los datos");
+            }
+
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
