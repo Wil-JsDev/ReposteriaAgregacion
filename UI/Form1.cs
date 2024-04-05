@@ -71,7 +71,8 @@ namespace UI
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
             producto.CalcularCosto();
-
+            MessageBox.Show("Han sido enviados los datos");
+            
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
