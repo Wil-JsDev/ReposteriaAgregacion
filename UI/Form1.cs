@@ -58,6 +58,12 @@ namespace UI
             txtPrecio.Text = "";
         }
 
+<<<<<<< HEAD
+        private void BtnCalcular_Click(object sender, EventArgs e)
+        {
+
+        }
+=======
         private void txtNombreI_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= 32 && e.KeyChar <= 64 || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
@@ -102,6 +108,7 @@ namespace UI
                 MessageBox.Show("No hay ingredientes para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+>>>>>>> 8606f13bc12c1d6a2ad876b15a874c201f2c2f88
     }
 }
 
